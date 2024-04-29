@@ -6,20 +6,25 @@
 #    By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 15:56:07 by llacsivy          #+#    #+#              #
-#    Updated: 2024/04/24 14:23:01 by llacsivy         ###   ########.fr        #
+#    Updated: 2024/04/29 15:47:42 by llacsivy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
-CFLAGS = -Wall -Wextra -Werror
+LIBFT_LIB = libft.a
+CFLAGS = -Wall -Wextra -L$(PWD) -lft #-Werror
 
 all : $(NAME)
 
-client :
+client : $(LIBFT_LIB) client.c
 	cc $(CFLAGS) client.c -o client
 
-server :
+server : $(LIBFT_LIB) server.c
 	cc $(CFLAGS) server.c -o server
+
+$(LIBFT_LIB): libft/*
+	$(MAKE) -C libft
+	@mv libft/libft.a . 
 
 $(NAME) : client server
 
@@ -33,7 +38,8 @@ clean :
 	rm -f client server
 	
 fclean : clean
-
+	rm -f libft.a
+	
 re : fclean all
 
 .PHONY: all clean fclean re 

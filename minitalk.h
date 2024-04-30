@@ -6,7 +6,7 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:08:32 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/04/29 21:09:34 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:49:38 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "libft/libft.h"
 # include <signal.h>
 
-char	*encrypt_char(char c);
+void	encrypt_char(pid_t pid, char c);
 
 #endif

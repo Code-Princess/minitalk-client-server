@@ -6,7 +6,7 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:04:29 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/04/30 19:17:20 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/04/30 19:42:13 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char	*argv[])
 		{
 			signal(SIGUSR1, handler);
 			signal(SIGUSR2, handler);
-			getchar();
+			pause ();
 		}
 		ft_printf("Server pid: %d", getpid());
 	}

@@ -6,21 +6,47 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:04:29 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/04/29 16:32:20 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/04/30 19:17:20 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void handler(int signal) {
-	ft_printf("Signal received %d\n",signal);
+void	handler(int signal)
+{
+	static int	ascii_code;
+	static int	shift_left;
+
+	if (signal == SIGUSR1)
+	{
+		ascii_code = ascii_code | (00000001 << shift_left);
+	}
+	shift_left++;
+	if (shift_left == 8)
+	{
+		ft_printf("%c", ascii_code);
+		shift_left = 0;
+		ascii_code = 0;
+	}
 }
 
-int	main(void)
+int	main(int argc, char	*argv[])
 {
-	// signal(SIGUSR1, handler);
-	// signal(SIGUSR2, handler);
-	ft_printf("Server pid: %d", getpid());
-	// getchar();
+	(void)argv;
+	if (argc != 1)
+	{
+		ft_printf("error! please run the server program like this: "
+			"./server\n");
+	}
+	else
+	{
+		while (argc == 1)
+		{
+			signal(SIGUSR1, handler);
+			signal(SIGUSR2, handler);
+			getchar();
+		}
+		ft_printf("Server pid: %d", getpid());
+	}
 	return (0);
 }

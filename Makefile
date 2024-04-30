@@ -6,13 +6,13 @@
 #    By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 15:56:07 by llacsivy          #+#    #+#              #
-#    Updated: 2024/04/29 15:47:42 by llacsivy         ###   ########.fr        #
+#    Updated: 2024/04/30 19:28:50 by llacsivy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
 LIBFT_LIB = libft.a
-CFLAGS = -Wall -Wextra -L$(PWD) -lft #-Werror
+CFLAGS = -Wall -Wextra -Werror -L$(PWD) -lft
 
 all : $(NAME)
 

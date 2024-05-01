@@ -6,38 +6,39 @@
 #    By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 15:56:07 by llacsivy          #+#    #+#              #
-#    Updated: 2024/04/30 19:28:50 by llacsivy         ###   ########.fr        #
+#    Updated: 2024/05/01 14:13:25 by llacsivy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
-LIBFT_LIB = libft.a
-CFLAGS = -Wall -Wextra -Werror -L$(PWD) -lft
+LIB_DIR = ./libft
+LIBFT_LIB = $(LIB_DIR)/libft.a
+CFLAGS = -Wall -Wextra -Werror
+LDFLAGS = -L$(LIB_DIR) -lft
+
+ifeq ($(DEBUG), 1)
+	CFLAGS += -g
+endif
 
 all : $(NAME)
 
 client : $(LIBFT_LIB) client.c
-	cc $(CFLAGS) client.c -o client
+	cc $(CFLAGS) client.c -o client $(LDFLAGS)
 
 server : $(LIBFT_LIB) server.c
-	cc $(CFLAGS) server.c -o server
+	cc $(CFLAGS) server.c -o server $(LDFLAGS)
 
-$(LIBFT_LIB): libft/*
+$(LIBFT_LIB):
 	$(MAKE) -C libft
-	@mv libft/libft.a . 
 
 $(NAME) : client server
 
-debug_client :
-	cc $(CFLAGS) -g client.c -o client
-
-debug_server :
-	cc $(CFLAGS) -g server.c -o server
-
 clean :
+	$(MAKE) clean -C $(LIB_DIR)
 	rm -f client server
 	
 fclean : clean
+	$(MAKE) fclean -C $(LIB_DIR)
 	rm -f libft.a
 	
 re : fclean all

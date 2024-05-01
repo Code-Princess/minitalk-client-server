@@ -6,7 +6,7 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:19:07 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/03/15 13:32:56 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:10:52 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,21 +105,3 @@ static void	*free_memory(char **strings, int count)
 	free(strings);
 	return (NULL);
 }
-
-/* int	main(void)
-{
-	// test function word_nr(char const *s, char c)
-	char	s1[4] = "a--b";
-	char	s2[12] = "abcde-kl-578";
-
-	printf("The wordnr of the string %s is: %d\n", s1, word_nr(s1, '-'));
-	printf("The wordnr of the string %s is: %d\n\n", s2, word_nr(s2, '-'));
-
-	// test function cpyaword(char const *s, int start, int end)
-	char	s3[12] = "abcde_kl_578";
-	int start = 2;
-	int end = 4;
-	char *word = cpyaword(s3, start, end);
-	printf("the result of cpyaword(%s, %d. %d) is: %s", s3, start, end, word);
-	return (0);
-} */

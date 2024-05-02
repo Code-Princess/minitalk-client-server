@@ -6,7 +6,7 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:59:32 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/05/01 13:29:22 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:56:01 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	encrypt_char(pid_t pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(400);
 		shift_left++;
 	}
 	return ;

@@ -6,7 +6,7 @@
 /*   By: llacsivy <llacsivy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:04:29 by llacsivy          #+#    #+#             */
-/*   Updated: 2024/05/01 21:37:04 by llacsivy         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:43:42 by llacsivy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	handler(int signal)
 		str_received = add_letter_to_str((char)ascii_code, str_received);
 		shift_left = 0;
 		ascii_code = 0;
-		if ((char)ascii_code == '\0')
+		if (str_received[ft_strlen(str_received)] == '\0')
 		{
 			ft_printf("%s", str_received);
 			free(str_received);

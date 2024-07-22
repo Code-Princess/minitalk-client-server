@@ -26,6 +26,7 @@ To run the program, use this command in your terminal:
 ./server
 ```
 This starts the server to get its PID (Process ID). The server will display its PID on the console. 
+
 Then, run the client with the server's PID and the message to be sent:
 ```
 ./client [Server PID] [Message]
